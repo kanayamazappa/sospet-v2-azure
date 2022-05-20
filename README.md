@@ -25,4 +25,4 @@ Os caminhos são:
 
 ### Backup do Mysql
 
-O arquivo se encontra aqui na raiz do projeto: sospet.sql
+O arquivo se encontra aqui na raiz do projeto: sospetv2.sql
