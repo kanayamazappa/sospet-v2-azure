@@ -2,34 +2,23 @@
 
 ### Reestruturação para uma arquitetura horizontal.
 
-API's - Python 3, Django, Django Rest Framework, Mysql.
+Banco de dados Mysql - hospedado no azure (Servidor flexível do Banco de Dados do Azure para MySQL);
 
-FRONT's - Python 3, Django, SqlLite (Controle de sessão).
+API's - 2 instancias hospedadas no azure (Instâncias de contêiner) - imagem [b7d9bda0c3de/sospetv2azure_api:latest](https://hub.docker.com/repository/docker/b7d9bda0c3de/sospetv2azure_api), criada com Python 3, Django, Django Rest Framework.
 
-Utilizamos o **DOCKER** para gerar o cluster de **API's** e **FRONT's**, o **NGINX** para o controle de carga realizado.
+FRONT's - 2 instancias hospedadas no azure (Instâncias de contêiner) - imagem [b7d9bda0c3de/sospetv2azure_web:latest](https://hub.docker.com/repository/docker/b7d9bda0c3de/sospetv2azure_web), criada com Python 3, Django
 
-### Como rodar o projeto.
+LOAD BALANCER API - 1 instancias hospedadas no azure (Instâncias de contêiner) - imagem [nginx:latest](https://hub.docker.com/_/nginx)
+LOAD BALANCER WEB - 1 instancias hospedadas no azure (Instâncias de contêiner) - imagem [nginx:latest](https://hub.docker.com/_/nginx)
 
-Faça o download do git em: https://git-scm.com/downloads
-Após a instalação abra o PowerShell ou CMD, e digite o commando:
-```
-git clone https://github.com/kanayamazappa/SOSPetV2.git
-```
+### Caminhos
 
-Faça o download do Docker em: https://docs.docker.com/get-docker/
-Após a instalação abra a pasta do projeto SOSPetV2 com o powershel ou cmd e digite o commando:
-```
-docker-compose up -d
-```
+Os caminhos são:
 
-Pronto para testar o projeto, os caminhos são:
-
-- MYSQL: http://localhost:3606
-- API 1: http://localhost:5001
-- API 2: http://localhost:5002
-- API 3: http://localhost:5003
-- BALANCER API: http://localhost:5000
-- FRONT 1: http://localhost:8001
-- FRONT 2: http://localhost:8002
-- FRONT 3: http://localhost:8003
-- BALANCER FRON: http://sospet-web.eastus.azurecontainer.io
+- MYSQL: sospetv2.mysql.database.azure.com
+- API 1: http://sospet-api1.eastus.azurecontainer.io
+- API 2: http://sospet-api2.eastus.azurecontainer.io
+- BALANCER API: http://sospet-api.eastus.azurecontainer.io
+- FRONT 1: http://sospet-web1.eastus.azurecontainer.io
+- FRONT 2: http://sospet-web2.eastus.azurecontainer.io
+- BALANCER FRONT: http://sospet-web.eastus.azurecontainer.io
