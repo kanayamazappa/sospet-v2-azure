@@ -22,3 +22,7 @@ Os caminhos são:
 - FRONT 1: http://sospet-web1.eastus.azurecontainer.io
 - FRONT 2: http://sospet-web2.eastus.azurecontainer.io
 - BALANCER FRONT: http://sospet-web.eastus.azurecontainer.io
+
+### Backup do Mysql
+
+O arquivo se encontra aqui na raiz do projeto: sospet.sql
